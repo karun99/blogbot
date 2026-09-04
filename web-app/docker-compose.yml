@@ -1,0 +1,19 @@
+services:
+  blogwriter:
+    build: .
+    container_name: blogwriter-web
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-meta-llama/llama-3.1-8b-instruct:free}
+      - OCR_ENDPOINT=${OCR_ENDPOINT:-https://api.ocr.space/parse/image}
+      - OCR_API_KEY=${OCR_API_KEY:-}
+      - BLOGWRITER_ENCRYPTION_KEY=${BLOGWRITER_ENCRYPTION_KEY:-blogwriter-default-key-please-rotate}
+      - ADMIN_TOKEN=${ADMIN_TOKEN:-}
+      - SCHEDULER_TICK_MS=${SCHEDULER_TICK_MS:-60000}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

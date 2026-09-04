@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlogWriter · AI Blog Automation</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">✍️</span>
+      <div>
+        <h1>BlogWriter</h1>
+        <p>Automated AI Blog Content Generation · Guiding Key Technologies</p>
+      </div>
+    </div>
+    <div class="key-status" id="keyStatus">
+      <span class="dot" id="keyDot"></span>
+      <span id="keyLabel">checking…</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-view="dashboard">Dashboard</button>
+    <button class="tab" data-view="jobs">Jobs</button>
+    <button class="tab" data-view="new">New Job</button>
+    <button class="tab" data-view="ocr">OCR</button>
+    <button class="tab" data-view="settings">Settings</button>
+  </nav>
+
+  <main class="container">
+    <!-- Dashboard -->
+    <section id="view-dashboard" class="view active">
+      <div class="stats" id="stats">
+        <div class="stat card"><span class="val" id="statJobs">0</span><span class="lbl">Total Jobs</span></div>
+        <div class="stat card"><span class="val" id="statRunning">0</span><span class="lbl">Running</span></div>
+        <div class="stat card"><span class="val" id="statPosts">0</span><span class="lbl">Posts Generated</span></div>
+      </div>
+      <div class="card">
+        <h2>Quick Start</h2>
+        <p>Create a job to automatically generate and schedule AI blog posts using your own OpenRouter key.</p>
+        <button class="btn primary" data-goto="new">+ Create New Job</button>
+      </div>
+    </section>
+
+    <!-- Jobs -->
+    <section id="view-jobs" class="view">
+      <div class="card">
+        <h2>Blog Jobs</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Job</th><th>Status</th><th>Posts</th><th>Interval</th><th>Next Run</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="jobsBody"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Job -->
+    <section id="view-new" class="view">
+      <div class="grid">
+        <div class="card">
+          <h2>Job Details</h2>
+          <label>Job Name *<input id="job_name" required /></label>
+          <label>Brand Name<input id="brand_name" placeholder="MAS Technology" /></label>
+          <label>Reference URL<input id="url" type="url" placeholder="https://example.com/tech-trends" /></label>
+          <label>Content Requirements<textarea id="requirements" rows="4" placeholder="Write about AI in 2026, include statistics..."></textarea></label>
+        </div>
+        <div class="card">
+          <h2>Generation</h2>
+          <label>Number of Posts<input id="num_posts" type="number" min="1" max="50" value="1" /></label>
+          <label>Word Count<input id="word_count" type="number" min="200" max="5000" value="1000" /></label>
+          <label>Tone
+            <select id="tone">
+              <option value="professional">Professional</option>
+              <option value="casual">Casual</option>
+              <option value="technical">Technical</option>
+              <option value="conversational">Conversational</option>
+              <option value="persuasive">Persuasive</option>
+            </select>
+          </label>
+          <label>SEO Keywords<input id="seo_keywords" placeholder="AI, Enterprise Tech, Cloud" /></label>
+        </div>
+        <div class="card">
+          <h2>Schedule</h2>
+          <div class="row">
+            <label>Interval<input id="interval" type="number" min="1" value="24" /></label>
+            <label>Unit
+              <select id="interval_unit">
+                <option value="minutes">Minutes</option>
+                <option value="hours" selected>Hours</option>
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+              </select>
+            </label>
+          </div>
+          <label>Post Status
+            <select id="post_status">
+              <option value="draft">Draft</option>
+              <option value="publish">Published</option>
+            </select>
+          </label>
+          <button class="btn primary block" id="createJob">Start Job</button>
+          <p class="msg" id="newJobMsg"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OCR -->
+    <section id="view-ocr" class="view">
+      <div class="grid">
+        <div class="card">
+          <h2>Extract Text from Documents</h2>
+          <input type="file" id="ocrFile" accept=".pdf,.docx,.txt,.jpg,.png" />
+          <p class="muted">PDF, DOCX, TXT, JPG, PNG · Max 5 MB</p>
+          <button class="btn primary" id="ocrBtn">Extract Text</button>
+          <p class="msg" id="ocrMsg"></p>
+        </div>
+        <div class="card wide">
+          <h2>Extracted Text</h2>
+          <textarea id="ocrResult" rows="14" placeholder="Extracted text will appear here. Copy it into the Content Requirements field of a job." readonly></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="view-settings" class="view">
+      <div class="grid">
+        <div class="card">
+          <h2>OpenRouter API (BYOK)</h2>
+          <label>API Key<input id="apiKey" type="password" placeholder="sk-or-v1-..." autocomplete="off" /></label>
+          <label>Preferred Model<input id="model" placeholder="meta-llama/llama-3.1-8b-instruct:free" /></label>
+          <button class="btn primary" id="saveSettings">Save Settings</button>
+          <p class="msg" id="settingsMsg"></p>
+        </div>
+        <div class="card">
+          <h2>Models</h2>
+          <ul id="modelsList" class="model-list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

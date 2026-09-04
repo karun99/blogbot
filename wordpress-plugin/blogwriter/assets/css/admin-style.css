@@ -1,0 +1,201 @@
+/* BlogWriter Admin Styles */
+
+.blogwriter-wrap .bw-version {
+    font-size: 12px;
+    font-weight: 400;
+    color: #787c82;
+    vertical-align: middle;
+}
+
+.bw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.bw-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.bw-card h2 {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.bw-card-wide {
+    grid-column: span 2;
+}
+
+.bw-stats {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.bw-stats .bw-card {
+    text-align: center;
+    padding: 22px 16px;
+}
+
+.bw-stat-value {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bw-stat-label {
+    display: block;
+    color: #646970;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.bw-ok {
+    background: #edfaef;
+    color: #00a32a;
+}
+
+.bw-warn {
+    background: #fcf9e8;
+    color: #996800;
+}
+
+.bw-fail {
+    background: #fcf0f1;
+    color: #d63638;
+}
+
+.bw-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.bw-form input[type="text"],
+.bw-form input[type="url"],
+.bw-form input[type="password"],
+.bw-form input[type="number"],
+.bw-form select,
+.bw-form textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+.bw-hint {
+    display: block;
+    color: #646970;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.bw-muted {
+    color: #646970;
+}
+
+.bw-submit {
+    margin-top: 16px;
+}
+
+.bw-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.bw-model-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.bw-model-list li code {
+    background: #f0f0f1;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.bw-audit-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.bw-audit-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f1;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.bw-audit-list li:last-child {
+    border-bottom: 0;
+}
+
+.bw-table th,
+.bw-table td {
+    padding: 10px 12px;
+}
+
+.bw-row-actions {
+    white-space: nowrap;
+}
+
+.bw-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #f0f0f1;
+    color: #3c434a;
+}
+
+.bw-running {
+    background: #edfaef;
+    color: #00a32a;
+}
+
+.bw-paused {
+    background: #fcf9e8;
+    color: #996800;
+}
+
+.bw-code {
+    background: #1d2327;
+    color: #c7c9ce;
+    padding: 14px 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.bw-detail-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.bw-detail-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.bw-detail-list li:last-child {
+    border-bottom: 0;
+}
+
+@media (max-width: 782px) {
+    .bw-card-wide {
+        grid-column: span 1;
+    }
+}
