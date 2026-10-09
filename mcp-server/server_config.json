@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "blogbot",
+    "version": "unknown",
+    "description": ""
+  },
+  "stack": "node",
+  "routes": [
+    {
+      "method": "get",
+      "path": "/status"
+    },
+    {
+      "method": "get",
+      "path": "/settings"
+    },
+    {
+      "method": "post",
+      "path": "/settings"
+    },
+    {
+      "method": "get",
+      "path": "/jobs"
+    },
+    {
+      "method": "post",
+      "path": "/jobs"
+    },
+    {
+      "method": "get",
+      "path": "/jobs/:id"
+    },
+    {
+      "method": "post",
+      "path": "/jobs/:id/run"
+    },
+    {
+      "method": "post",
+      "path": "/jobs/:id/pause"
+    },
+    {
+      "method": "post",
+      "path": "/jobs/:id/resume"
+    },
+    {
+      "method": "delete",
+      "path": "/jobs/:id"
+    },
+    {
+      "method": "post",
+      "path": "/ocr"
+    }
+  ],
+  "pages": [],
+  "base_url": "http://localhost:3000",
+  "module": null,
+  "scripts": {},
+  "server": "mcp-server/server.mjs",
+  "runner": "node",
+  "runner_cmd": "node"
+}
