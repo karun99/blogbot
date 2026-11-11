@@ -1,13 +1,13 @@
 {
   "name": "blogwriter-web",
   "version": "1.0.0",
-  "description": "BlogWriter cloud web app — automated AI blog content generation with OpenRouter BYOK. Deployable to Vercel, Netlify, Railway, Render, Fly.io or any Docker host.",
+  "description": "BlogWriter cloud web app \u2014 automated AI blog content generation with OpenRouter BYOK. Deployable to Vercel, Netlify, Railway, Render, Fly.io or any Docker host.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
     "build": "node -e \"require('fs').mkdirSync('public', { recursive: true }); require('fs').mkdirSync('data', { recursive: true });\"",
-    "test": "node --test test/",
+    "test": "node --test \"test/*.test.js\"",
     "lint": "node --check src/app.js && node --check src/routes.js && node --check server.js"
   },
   "engines": {
